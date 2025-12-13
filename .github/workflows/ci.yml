@@ -3,9 +3,9 @@ name: Python CI
 
 on:
   push:
-    branches: [main, task-2-eda]
+    branches: [main, task-1, task-2]
   pull_request:
-    branches: [main, task-2-eda]
+    branches: [main, task-1,task-2]
 
 jobs:
   build:
