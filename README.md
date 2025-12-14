@@ -25,3 +25,8 @@ Credit risk modeling involves a fundamental trade-off between interpretability a
 In contrast, more complex machine learning models, such as Gradient Boosting, can achieve superior predictive accuracy by capturing non-linear relationships and complex interactions within the data. However, their limited interpretability, increased validation complexity, and higher governance burden make them less suitable as primary decision engines in tightly regulated environments.
 
 In practice, many financial institutions adopt a balanced approach: interpretable models are used for core credit decisioning, while complex models are employed selectively to enhance risk monitoring or support secondary analyses. This project reflects that philosophy by evaluating both model types while maintaining a strong emphasis on explainability and regulatory alignment.
+## Feature Engineering with WoE and IV
+
+Weight of Evidence (WoE) and Information Value (IV) are widely used techniques in credit risk modeling to transform categorical variables into meaningful numerical representations while preserving interpretability. WoE encodes the strength and direction of a feature’s relationship with default risk, while IV quantifies the predictive power of each variable.
+
+In this project, WoE and IV will be applied after the construction of a proxy default variable (is_high_risk) derived from RFM-based customer segmentation. This ensures that transformations are grounded in observed risk behavior and aligned with regulatory best practices.
