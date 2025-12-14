@@ -13,6 +13,14 @@ class CreditRiskFeatureEngineer:
     def extract_datetime_features(self, df):
         df = df.copy()
         df["TransactionStartTime"] = pd.to_datetime(df["TransactionStartTime"])
+        
+        # Extract new features
+        df["transaction_hour"] = df["TransactionStartTime"].dt.hour
+        df["transaction_day"] = df["TransactionStartTime"].dt.day
+        df["transaction_month"] = df["TransactionStartTime"].dt.month
+        df["transaction_year"] = df["TransactionStartTime"].dt.year
+        
+        # Drop the original timestamp
         return df.drop(columns=["TransactionStartTime"])
     def aggregate_customer_features(self, df):
         agg = df.groupby('CustomerId').agg(
@@ -23,10 +31,16 @@ class CreditRiskFeatureEngineer:
         ).reset_index()
         return agg
     def build_processor(self):
-        numerical_features = ["total_amount",
+        numerical_features = [
+            "total_amount",
             "avg_amount",
             "transaction_count",
-            "std_amount"]
+            "std_amount",
+            "transaction_hour",
+            "transaction_day",
+            "transaction_month",
+            "transaction_year"
+        ]
         categorical_features = [
             "ProductCategory",
             "ChannelId",
