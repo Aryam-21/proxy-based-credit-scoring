@@ -3,3 +3,6 @@ numpy
 matplotlib
 seaborn
 sickit-learn
+mlflow
+pytest
+
