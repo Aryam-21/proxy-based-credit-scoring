@@ -1,0 +1,22 @@
+artifact_path: file:c:/Users/PC/Documents/proxy-based-credit-scoring/notebooks/mlruns/0/models/m-c60506389c294293acc409f805c2101a/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.7.0
+model_id: m-c60506389c294293acc409f805c2101a
+model_size_bytes: 4936923
+model_uuid: m-c60506389c294293acc409f805c2101a
+prompts: null
+run_id: 57377e4c40ae4f14a4d06f6a42762ccc
+utc_time_created: '2025-12-15 17:16:12.987557'
