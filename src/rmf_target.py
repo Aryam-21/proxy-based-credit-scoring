@@ -27,6 +27,7 @@ class RFMBasedTargetBuilder:
         reversed_recency = cluster_summary["recency"].max() - cluster_summary["recency"]
 
         cluster_summary["risk_score"] = (cluster_summary["frequency"] + cluster_summary["monetary"]+ reversed_recency)
-        high_risk_cluster = cluster_summary["risk_score"].idxmin()
-        rfm_df['is_high_risk'] = (rfm_df['cluster'] == high_risk_cluster).astype(int)
+        threshold = cluster_summary["risk_score"].quantile(0.5)
+        high_risk_cluster = cluster_summary[cluster_summary['risk_score'] <= threshold].index
+        rfm_df['is_high_risk'] = (rfm_df['cluster'].isin(high_risk_cluster)).astype(int)
         return rfm_df[['CustomerId', 'is_high_risk']]
