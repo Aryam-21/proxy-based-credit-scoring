@@ -24,7 +24,9 @@ class RFMBasedTargetBuilder:
         rfm_scaled = self.scaler.fit_transform(rfm_df[["recency", "frequency", "monetary"]])
         rfm_df['cluster'] = self.kmeans.fit_predict(rfm_scaled)
         cluster_summary = (rfm_df.groupby('cluster')[["recency", "frequency", "monetary"]].mean())
-        cluster_summary["risk_score"] = (cluster_summary["frequency"] + cluster_summary["monetary"])
+        reversed_recency = cluster_summary["recency"].max() - cluster_summary["recency"]
+
+        cluster_summary["risk_score"] = (cluster_summary["frequency"] + cluster_summary["monetary"]+ reversed_recency)
         high_risk_cluster = cluster_summary["risk_score"].idxmin()
         rfm_df['is_high_risk'] = (rfm_df['cluster'] == high_risk_cluster).astype(int)
         return rfm_df[['CustomerId', 'is_high_risk']]
