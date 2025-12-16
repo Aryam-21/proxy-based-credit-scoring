@@ -50,3 +50,5 @@ data/
 .DS_Store
 Thumbs.db
 .env
+notebooks/mlflow.db
+mlruns/
