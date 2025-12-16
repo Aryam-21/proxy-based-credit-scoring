@@ -12,6 +12,6 @@ class CustomerData(BaseModel):
     def to_dataframe(self):
         import pandas as pd
         return pd.DataFrame([self.dict()])
-    class PredictionResponse(BaseModel):
-        risk_probability: float
-        risk_label: int
+class PredictionResponse(BaseModel):
+    risk_probability: float
+    risk_label: int
