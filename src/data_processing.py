@@ -41,7 +41,6 @@ class CreditRiskFeatureEngineer:
             "transaction_hour",
             "transaction_day",
             "transaction_month",
-
             "transaction_year",
             ]
 

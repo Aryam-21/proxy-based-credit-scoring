@@ -1,8 +1,11 @@
+fastapi
+uvicorn
+mlflow
+pydantic
+pytest
+flake8
 pandas
 numpy
 matplotlib
 seaborn
-sickit-learn
-mlflow
-pytest
-
+scikit-learn
